@@ -1,0 +1,108 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class Solution {
+    public static void main(String[] args) {
+
+        // Create ArrayList
+        ArrayList<String> employees = new ArrayList<>();
+
+        // -------------------------
+        // 1. ADDITION METHODS
+        // -------------------------
+
+        // add(E e)
+        employees.add("Smith");
+        employees.add("Allen");
+        employees.add("John");
+        employees.add("King");
+        employees.add("Tyler");
+
+        System.out.println("After adding elements:");
+        System.out.println(employees);
+
+        // add(index, element)
+        employees.add(2, "David");
+        System.out.println("\nAfter inserting at index 2:");
+        System.out.println(employees);
+
+        // addAll(Collection)
+        ArrayList<String> newEmployees = new ArrayList<>();
+        newEmployees.add("Chris");
+        newEmployees.add("Tom");
+
+        employees.addAll(newEmployees);
+        System.out.println("\nAfter addAll:");
+        System.out.println(employees);
+
+
+        // -------------------------
+        // 2. ACCESS METHODS
+        // -------------------------
+
+        // get(index)
+        System.out.println("\nEmployee at index 3: " + employees.get(3));
+
+        // set(index, element)
+        employees.set(1, "Robert");
+        System.out.println("\nAfter set method:");
+        System.out.println(employees);
+
+        // size()
+        System.out.println("\nSize of list: " + employees.size());
+
+
+        // -------------------------
+        // 3. SEARCH METHODS
+        // -------------------------
+
+        // contains(Object)
+        System.out.println("\nContains 'John'? " + employees.contains("John"));
+
+        // indexOf(Object)
+        System.out.println("Index of 'King': " + employees.indexOf("King"));
+
+
+        // -------------------------
+        // 4. UTILITY METHODS
+        // -------------------------
+
+        // sort(Comparator)
+        Collections.sort(employees);
+        System.out.println("\nAfter sorting:");
+        System.out.println(employees);
+
+        // toArray()
+        Object[] arr = employees.toArray();
+        System.out.println("\nArray conversion:");
+        for(Object name : arr){
+            System.out.print(name + " ");
+        }
+
+        // clone()
+        ArrayList<String> clonedList = (ArrayList<String>) employees.clone();
+        System.out.println("\n\nCloned list:");
+        System.out.println(clonedList);
+
+
+        // -------------------------
+        // 5. REMOVAL METHODS
+        // -------------------------
+
+        // remove(index)
+        employees.remove(2);
+        System.out.println("\nAfter removing index 2:");
+        System.out.println(employees);
+
+        // remove(object)
+        employees.remove("Smith");
+        System.out.println("\nAfter removing 'Smith':");
+        System.out.println(employees);
+
+        // clear()
+        employees.clear();
+        System.out.println("\nAfter clear:");
+        System.out.println(employees);
+    }
+}
