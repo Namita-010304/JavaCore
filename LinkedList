@@ -1,0 +1,67 @@
+import java.util.LinkedList;
+import java.util.Arrays;
+
+public class Solution {
+    public static void main(String[] args) {
+
+        LinkedList<String> list = new LinkedList<>();
+
+        // -------------------------
+        // ADDITION METHODS
+        // -------------------------
+
+        list.add("John");
+        list.add("Smith");
+
+        list.addFirst("Allen");
+        list.addLast("King");
+
+        list.add(2, "David");
+
+        list.addAll(Arrays.asList("Tom", "Chris"));
+
+        System.out.println("After Addition:");
+        System.out.println(list);
+
+
+        // -------------------------
+        // RETRIEVAL METHODS
+        // -------------------------
+
+        System.out.println("\nget(2): " + list.get(2));
+        System.out.println("getFirst(): " + list.getFirst());
+        System.out.println("getLast(): " + list.getLast());
+
+        System.out.println("element(): " + list.element());
+
+        System.out.println("peek(): " + list.peek());
+        System.out.println("peekFirst(): " + list.peekFirst());
+        System.out.println("peekLast(): " + list.peekLast());
+
+
+        // -------------------------
+        // REMOVAL METHODS
+        // -------------------------
+
+        list.remove(2);
+        System.out.println("\nAfter remove(index): " + list);
+
+        list.remove("Tom");
+        System.out.println("After remove(object): " + list);
+
+        list.removeFirst();
+        System.out.println("After removeFirst(): " + list);
+
+        list.removeLast();
+        System.out.println("After removeLast(): " + list);
+
+        list.poll();
+        System.out.println("After poll(): " + list);
+
+        list.pollFirst();
+        System.out.println("After pollFirst(): " + list);
+
+        list.pollLast();
+        System.out.println("After pollLast(): " + list);
+    }
+}
