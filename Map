@@ -1,0 +1,102 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public static void main(String[] args) {
+
+        // Create Map
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // -------------------------
+        // CORE OPERATIONS
+        // -------------------------
+
+        // put()
+        map.put(101, "John");
+        map.put(102, "Smith");
+        map.put(103, "Allen");
+        map.put(104, "King");
+
+        System.out.println("After put:");
+        System.out.println(map);
+
+
+        // get()
+        System.out.println("\nGet key 102: " + map.get(102));
+
+
+        // remove()
+        map.remove(103);
+        System.out.println("\nAfter remove key 103:");
+        System.out.println(map);
+
+
+        // containsKey()
+        System.out.println("\nContains key 101? " + map.containsKey(101));
+
+
+        // containsValue()
+        System.out.println("Contains value 'King'? " + map.containsValue("King"));
+
+
+        // size()
+        System.out.println("\nSize: " + map.size());
+
+
+        // isEmpty()
+        System.out.println("Is Empty? " + map.isEmpty());
+
+
+        // -------------------------
+        // ITERATION AND ACCESS
+        // -------------------------
+
+        // keySet()
+        System.out.println("\nKeys:");
+        for(Integer key : map.keySet()) {
+            System.out.println(key);
+        }
+
+
+        // values()
+        System.out.println("\nValues:");
+        for(String value : map.values()) {
+            System.out.println(value);
+        }
+
+
+        // entrySet()
+        System.out.println("\nEntries:");
+        for(Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+
+        // getOrDefault()
+        System.out.println("\ngetOrDefault:");
+        System.out.println(map.getOrDefault(105, "Not Found"));
+
+
+        // forEach()
+        System.out.println("\nforEach:");
+        map.forEach((key, value) -> 
+            System.out.println(key + " -> " + value)
+        );
+
+
+        // replaceAll()
+        map.replaceAll((key, value) -> value.toUpperCase());
+
+        System.out.println("\nAfter replaceAll:");
+        System.out.println(map);
+
+
+        // clear()
+        map.clear();
+        System.out.println("\nAfter clear:");
+        System.out.println(map);
+
+        // isEmpty after clear
+        System.out.println("Is Empty now? " + map.isEmpty());
+    }
+} 
