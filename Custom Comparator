@@ -1,0 +1,88 @@
+import java.util.Comparator;
+import java.util.*;
+
+public class BookstoreInventory {
+
+    public static void main(String[] args) {
+
+        // Step 4 — Hardcoded Data
+        Book[] books = {
+                new Book("The Alchemist", "Paulo Coelho", 299.0),
+                new Book("harry potter", "J.K. Rowling", 399.0),
+                new Book("1984", "George Orwell", 199.0),
+                new Book("Clean Code", "Robert C. Martin", 499.0),
+                new Book("The Pragmatic Programmer", "Andrew Hunt", 450.0)
+        };
+
+        // Step 5 — Before Sorting
+        System.out.println("Books before sorting:");
+        for (Book b : books) {
+            System.out.println(b);
+        }
+
+        // Step 6 — Sort by Title
+        Arrays.sort(books, new BookTitleComparator());
+
+        System.out.println("\nBooks after sorting by title (case-insensitive):");
+        for (Book b : books) {
+            System.out.println(b);
+        }
+
+        // Step 7 — Sort by Price
+        Arrays.sort(books, new BookPriceComparator());
+
+        System.out.println("\nBooks after sorting by price (ascending):");
+        for (Book b : books) {
+            System.out.println(b);
+        }
+    }
+}
+
+class Book {
+    private String title;
+    private String author;
+    private double price;
+
+    // Constructor
+    public Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Getters
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    // toString Method
+    @Override
+    public String toString() {
+        return "Title: " + title + ", Author: " + author + ", Price: " + price;
+    }
+}
+
+
+class BookPriceComparator implements Comparator<Book> {
+    @Override
+    public int compare(Book b1, Book b2) {
+        return Double.compare(b1.getPrice(), b2.getPrice());
+    }
+}
+
+
+class BookTitleComparator implements Comparator<Book> {
+    @Override
+    public int compare(Book b1, Book b2) {
+        return b1.getTitle().compareToIgnoreCase(b2.getTitle());
+    }
+}
+
