@@ -1,0 +1,92 @@
+class BankAccount {
+
+    private int accountNumber;
+    private String accountHolderName;
+    private double accountBalance;
+
+    public BankAccount(int accountNumber, String accountHolderName, double accountBalance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.accountBalance = accountBalance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void updateBalance(double amount) {
+        accountBalance += amount;
+    }
+
+    public void display() {
+        System.out.println("Account No: " + accountNumber +
+                ", Name: " + accountHolderName +
+                ", Balance: " + accountBalance);
+    }
+}
+
+
+class BankAccountManager {
+
+    private LinkedHashMap<Integer, BankAccount> accounts;
+
+    public BankAccountManager() {
+        accounts = new LinkedHashMap<>();
+    }
+
+    public void addAccount(BankAccount account) {
+
+        int accNo = account.getAccountNumber();
+
+        if (!accounts.containsKey(accNo)) {
+            accounts.put(accNo, account);
+
+            System.out.println("Account added -> Account No: " +
+                    account.getAccountNumber() +
+                    ", Name: " +
+                    account.getAccountHolderName() +
+                    ", Balance: " +
+                    account.getAccountBalance());
+
+        } else {
+            System.out.println("Duplicate account number not allowed: " + accNo);
+        }
+    }
+
+    public void removeAccount(int accountNumber) {
+        accounts.remove(accountNumber);
+    }
+
+    public void getAccount(int accountNumber) {
+
+        BankAccount account = accounts.get(accountNumber);
+
+        if (account != null) {
+            System.out.println("\nAccount found -> Account No: " +
+                    account.getAccountNumber() +
+                    ", Name: " +
+                    account.getAccountHolderName() +
+                    ", Balance: " +
+                    account.getAccountBalance());
+        } else {
+            System.out.println("Account not found");
+        }
+    }
+
+    public void displayAllAccounts() {
+
+        System.out.println("\nAll Bank Accounts (Insertion Order Preserved):");
+
+        for (BankAccount account : accounts.values()) {
+            account.display();
+        }
+    }
+}
