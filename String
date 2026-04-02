@@ -1,0 +1,87 @@
+public class Solution {
+    public static void main(String[] args) {
+
+        // =========================
+        // STRING OPERATIONS
+        // =========================
+
+        String s1 = "Hello";
+        String s2 = "World";
+
+        // Concatenation
+        String result1 = s1 + " " + s2;
+        String result2 = s1.concat(" ").concat(s2);
+
+        System.out.println("Concatenation (+): " + result1);
+        System.out.println("Concatenation (concat): " + result2);
+
+
+        // Comparison
+        String str1 = "Java";
+        String str2 = "Java";
+        String str3 = "Python";
+
+        System.out.println("\nEquals: " + str1.equals(str2));
+        System.out.println("CompareTo: " + str1.compareTo(str3));
+
+
+        // Access
+        String text = "Programming";
+
+        System.out.println("\ncharAt(3): " + text.charAt(3));
+        System.out.println("length(): " + text.length());
+
+
+        // Substring
+        System.out.println("\nsubstring(3): " + text.substring(3));
+        System.out.println("substring(3,7): " + text.substring(3,7));
+
+
+        // Search
+        System.out.println("\nindexOf(\"gram\"): " + text.indexOf("gram"));
+
+
+
+        // =========================
+        // STRINGBUILDER OPERATIONS
+        // =========================
+
+        StringBuilder sb = new StringBuilder("Java");
+
+        // append()
+        sb.append(" Programming");
+        System.out.println("\nappend(): " + sb);
+
+        // insert()
+        sb.insert(5, "Language ");
+        System.out.println("insert(): " + sb);
+
+        // delete()
+        sb.delete(5, 14);
+        System.out.println("delete(): " + sb);
+
+
+        // replace()
+        sb.replace(0, 4, "Python");
+        System.out.println("replace(): " + sb);
+
+
+        // reverse()
+        sb.reverse();
+        System.out.println("reverse(): " + sb);
+
+
+        // capacity()
+        System.out.println("\ncapacity(): " + sb.capacity());
+
+
+        // ensureCapacity()
+        sb.ensureCapacity(50);
+        System.out.println("After ensureCapacity(): " + sb.capacity());
+
+
+        // toString()
+        String finalString = sb.toString();
+        System.out.println("\nConverted to String: " + finalString);
+    }
+}
